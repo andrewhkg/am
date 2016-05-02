@@ -9,13 +9,13 @@
  * Main module of the application.
  */
 angular
-  .module('aasiaTravel2App', [
+  .module('mina3App', [
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
   ])
   .config(function ($routeProvider) {
     $routeProvider
@@ -23,13 +23,17 @@ angular
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
+      .when('/bio', {
+        templateUrl: 'views/bio.html',
+        controller: 'MainCtrl'
       })
       .when('/contact', {
         templateUrl: 'views/contact.html',
-        controller: 'ContactCtrl'
+        controller: 'MainCtrl'
+      })
+       .when('/photos', {
+        templateUrl: 'views/photos.html',
+        controller: 'MainCtrl'
       })
       .otherwise({
         redirectTo: '/'

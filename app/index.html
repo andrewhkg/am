@@ -2,20 +2,23 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title>Amazing attractions tickets, guides and transfers</title>
+    <title>Alberto Mina</title>
     <meta name="description" content="attractions, guides and transfers">
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
     <link rel="stylesheet" href="styles/main.css">
+    <!-- <link rel="stylesheet" href="styles/normalize.css"> -->
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="styles/photo.css">
     <!-- endbuild -->
   </head>
-    <body ng-app="aasiaTravel2App">
+    <body ng-app="mina3App" ng-controller="MainCtrl">
 
     <!-- Add your site or application content here -->
 
 
-  <nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -26,52 +29,55 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#/" style="margin-bottom:15px;margin-top:0">
-     <img src="/images/Logo Horisontal color copy.png" alt="Aasia Travel" height="42" width="auto">
+     <img src="/images/logo_mina.jpg" alt="Alberto Mina" height="42" width="auto">
       </a>
     </div>
-
-
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Destinations <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Hong Kong</a></li>
-            <li><a href="#">Macao</a></li>
-          </ul>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Attractions</a></li>
-            <li><a href="#">Guides</a></li>
-            <li><a href="#">Transfers</a></li>
-          </ul>
-        </li>
-        <li><a href="#/about">About <span class="sr-only">(current)</span></a></li>
-        <li><a href="#/contact">Contact</a></li>
-      </ul>
-
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Sign In /Up</a></li>
-
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">En<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-           <!--  <li><a href="#">En</a></li> -->
-            <li><a href="#">Ru</a></li>
-          </ul>
-        </li>
-      </ul>
+    <div id="navbar" class="navbar-collapse collapse"\>
+            <ul class="nav navbar-nav pull-right">
+              <li><a href="#/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a></li>
+              <li ng-repeat="category in categories" ng-class="{'active' :isCurrentCategory(categoty)}">
+                <a href="{{category.url}}" ng-click="setCurrentCategory(category)">{{category.name}}</a>
+              </li>
+            </ul>
     </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
+    </div><!-- /.container-fluid -->
 </nav>
-
   <div class="container">
     <div ng-view=""></div>
   </div>
+
+<footer class="footer well" style="margin: 5em 0em 1em 0em;">
+<div class="container" style="padding-left: 0">
+  <div class="row">
+    <div class="col-sm-12">
+    <div class="wrapper" style="background-color:#ecf0f1; padding: 1em 2em;">
+      <ul class="list-inline">
+        <li ng-repeat="category in categories"  ng-class="{'active' :isCurrentCategory(categoty)}">
+        <a href="{{category.url}}" ng-click="setCurrentCategory(category)">{{category.name}}</a>
+        </li>
+        <li class="last"><a href="#">Facebook</a></li>
+        <li class="last"><a href="#">Twitter</a></li>
+        <li class="last"><a href="#">Instagram</a></li>
+        <li class="last"><a href="#">Youtube</a></li>
+      </ul>
+    </div>
+    </div>
+
+
+</div> 
+  <div class="row" style="text-align: center; padding: 1em; margin: 1em 0; background-color ←
+      :#ecf0f1;">
+    <p>All Rights Reserved. Alberto Mina 2016.</p>
+  </div>
+</div>
+</footer>
+
+
+
+ <!--  <div class="footer">
+    <p>Footer</p>
+  </div> -->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -93,10 +99,12 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
-
+    <!-- <script src="bower_components/parallax-js/js/parallax.js"></script>
+    <script src="bower_components/parallax-js/js/kinetics.js"></script>
+ -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/about.js"></script>
+
 
 </body>
 </html>
